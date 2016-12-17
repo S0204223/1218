@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+<p id="top_line"></p>
+<div id="header">
+	<p id="header_line"></p>
+    <div id="header_c">
+    	<div id="logo"><h1 class="logo"><a href="index.html">挺好看動物</a></h1></div>
+        <div id="btn_bg">
+    </div>
+</div>
+<form name="skeyForm" id="skeyForm" method="GET" onSubmit="return false;" >
+	<input name="skey" type="text" id="skey" style="DISPLAY: none" value=""/>
+</form>
+<div id="cf">
+	<div class="flexslider">
+    	<ul class="slides">
+        	<li><a href="products_ii.html?gID=1" title="01"><img alt="01" title="01" src="1217/001.jpg" width="1030" height="560"/>.
+	</div>
+</div>
+<div id="msg_bg">
+<script>
+$(function(){
+	$('.flexslider').flexslider({
+		directionNav: true,
+		pauseOnAction: false
+	});
+});
+</script>
+<script>
+function slideLine(box,stf,delay,speed,h)
+{
+  var slideBox = document.getElementById(box);
+  var delay = delay||1000,speed = speed||20,h = h||20;
+  var tid = null,pause = false;
+  var s = function(){tid=setInterval(slide, speed);}
+  var slide = function(){
+    if(pause) return;
+    slideBox.scrollTop += 1;
+    if(slideBox.scrollTop%h == 0){
+      clearInterval(tid);
+      slideBox.appendChild(slideBox.getElementsByTagName(stf)[0]);
+      slideBox.scrollTop = 0;
+      setTimeout(s, delay);
+    }
+  }
+  slideBox.onmouseover=function(){pause=true;}
+  slideBox.onmouseout=function(){pause=false;}
+  setTimeout(s, delay);
+}
+slideLine('ann_box','div',2000,25,30);
+</script>
+<!-- pic end -->
+</body>
+</html>
